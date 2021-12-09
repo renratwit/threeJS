@@ -1,6 +1,7 @@
 import './style.css'
 import * as THREE from 'three'
 import { PointLightHelper } from 'three';
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 const scene = new THREE.Scene();
 
@@ -16,25 +17,43 @@ camera.position.setZ(30)
 
 renderer.render(scene, camera)
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100)
-const material = new THREE.MeshStandardMaterial( {color: 0xFF6347});
-const torus = new THREE.Mesh(geometry, material)
+//
+const material = new THREE.MeshBasicMaterial({color: 0xCCB511 });
 
-scene.add(torus)
+const group = new THREE.Group()
+const geometry = new THREE.BoxGeometry(10, 10, 10)
 
-const pointLight = new THREE.PointLight(0xffffff)
-pointLight.position.set(5, 5, 5)
+const cubeA = new THREE.Mesh(geometry, material)
+cubeA.position.set(10, 10, 0);
 
-const lightHelper = new THREE.PointLightHelper(pointLight)
-scene.add(lightHelper)
-scene.add(pointLight)
+const cubeB = new THREE.Mesh(geometry, material)
+cubeB.position.set(10, 20.15, 0)
+
+const cubeC = new THREE.Mesh(geometry, material)
+cubeC.position.set(20.15, 10, 0)
+
+const cubeD = new THREE.Mesh(geometry, material)
+cubeD.position.set(20.15, 20.15, 0)
+
+group.add(cubeA)
+group.add(cubeB)
+group.add(cubeC)
+group.add(cubeD)
+
+group.position.x = 60
+scene.add(group)
+
+//
+
+const controls = new OrbitControls(camera, renderer.domElement)
+
+const ambientLight = new THREE.AmbientLight(0xffffff)
+const gridHelper = new THREE.GridHelper(500, 100)
+scene.add(ambientLight, gridHelper)
 
 const animate = () => {
   requestAnimationFrame(animate);
-  torus.rotation.x += 0.01
-  torus.rotation.y += 0.001
-  torus.rotation.z += 0.1
-
+  controls.update()
   renderer.render(scene, camera)
 }
 
