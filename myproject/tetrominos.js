@@ -2,7 +2,7 @@ import * as THREE from 'three'
 
 export function createOPiece() {
   
-    const material = new THREE.MeshBasicMaterial({color: 0xCCB511 });
+    const material = new THREE.MeshStandardMaterial({color: 0xCCB511 });
   
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
@@ -28,7 +28,7 @@ export function createOPiece() {
   }
   
 export function createTPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0x7734eb });
+    const material = new THREE.MeshStandardMaterial({color: 0x7734eb });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   
@@ -52,7 +52,7 @@ export function createTPiece() {
   }
   
 export function createIPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0x21cceb });
+    const material = new THREE.MeshStandardMaterial({color: 0x21cceb });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   
@@ -76,7 +76,7 @@ export function createIPiece() {
   }
   
 export function createLPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0xdb7b14 });
+    const material = new THREE.MeshStandardMaterial({color: 0xdb7b14 });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   
@@ -100,7 +100,7 @@ export function createLPiece() {
   }
   
 export function createJPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0x0335fc });
+    const material = new THREE.MeshStandardMaterial({color: 0x0335fc });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   
@@ -125,7 +125,7 @@ export function createJPiece() {
   
   
 export function createSPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0x04d91a });
+    const material = new THREE.MeshStandardMaterial({color: 0x04d91a });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   
@@ -149,7 +149,7 @@ export function createSPiece() {
   }
   
 export function createZPiece() {
-    const material = new THREE.MeshBasicMaterial({color: 0xde0000 });
+    const material = new THREE.MeshStandardMaterial({color: 0xde0000 });
     const group = new THREE.Group()
     const geometry = new THREE.BoxGeometry(10, 10, 10)
   

@@ -6,8 +6,75 @@ canvas {
 
 main {
   position: absolute;
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 main p {
   color: wheat;
+}
+
+body {
+  color: wheat;
+  font-size: 1.2 vw;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  background-color: black;
+}
+
+ul li {
+  display: inline;
+}
+
+header {
+  background: var(--dark-bg);
+  grid-column: 1 / span 12;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
+}
+
+blockquote {
+  grid-column: 2 / span 9;
+  background-color: black;
+  padding: 5px;
+  margin-left: 0px;
+  margin-bottom: 80px;
+}
+
+#education {
+  grid-column: 2 / span 5;
+  background-color: black;
+  padding: 5px;
+  margin-bottom: 50px;
+}
+
+#work {
+  grid-column: 2 / span 5;
+  background-color: black;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  #education {
+    grid-column: 1 / span 11;
+    background-color: black;
+    padding: 5px;
+    margin-bottom: 50px;
+  }
+
+  #work {
+    grid-column: 1 / 12;
+    background-color: black;
+    padding: 5px;
+    margin-left: 0px;
+  }
 }
