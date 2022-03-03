@@ -4,6 +4,10 @@ import { PointLightHelper } from 'three';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {createOPiece, createIPiece, createJPiece, createLPiece, createSPiece, createZPiece, createTPiece} from './tetrominos.js'
 
+/**
+ * This scripts controls the background on the webpage
+ */
+
 const scene = new THREE.Scene();
 const spaceTexture = new THREE.TextureLoader().load('/res/space.jpg')
 scene.background = spaceTexture;
@@ -40,7 +44,6 @@ camera.position.setY(-3)
 
 renderer.render(scene, camera)
 
-//
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -56,7 +59,9 @@ function randomizePiecePosition(p) {
 }
 
 let pieces = []
-
+/**
+ * Create 26 of every piece, total of 182, Tetriminos in the background
+ */
 for (var  i = 0; i <= 25; i++) {
   var p = createOPiece()
   randomizePiecePosition(p)
@@ -94,13 +99,21 @@ for (var  i = 0; i <= 25; i++) {
   scene.add(p)
 }
 
+/**
+ * moveCamera() dicttes the behavior executed upon camera scroll.
+ */
 function moveCamera() {
   let t = document.body.getBoundingClientRect().top
   // console.log(t)
 
+  // band-aid solution
+  //  Tetrimino placements at the top of client is not consistent with their position in the rest of the view.
+  //  This only resets the value of 't' so it never fully reaches that bugged threshold.
   if (t === 8) t = -10
+
+  // iterate through every piece and alter their position and rotation on queue with scroll action
   pieces.forEach(p => {
-    var y = window.scrollY;
+    // var y = window.scrollY;
     // console.log(y)
     
     p.rotation.x += 0.0007
@@ -119,12 +132,20 @@ document.body.onscroll = moveCamera
 moveCamera();
 
 //
+let multiplier = 1;
 
 const animate = () => {
   pieces.forEach(p => {
     p.rotation.x += 0.001
-    p.rotation.y += 0.001
-    p.rotation.z += 0.001
+    p.rotation.y += 0.007
+    p.rotation.z += 0.005
+
+    let threshold = p.position.x + 500;
+    if (p.position.x > threshold) multiplier = -1 * multiplier;
+    if (p.position.x < p.position.x - threshold) multiplier = -1 * multiplier
+
+    p.position.x += multiplier * 0.005
+
   })
   requestAnimationFrame(animate);
   // controls.update()
