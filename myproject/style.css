@@ -10,6 +10,7 @@ main {
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
 main p {
@@ -74,8 +75,25 @@ blockquote {
 }
 
 #skills {
-  grid-column: 2 / span 5;
+  grid-column: 1 / span 12;
+  background-color: rgba(255, 255, 255, 0.1);
 }
+
+#skills .icon-container {
+  align-items: center;
+  text-align: center;
+}
+
+#skills .icons {
+  display: flex;
+  justify-content: center;
+}
+
+#skills .icon {
+  height: 10vh;
+  color: white;
+}
+
 #education {
   grid-column: 2 / span 5;
   background-color: rgba(0, 0, 0, 0.5);
