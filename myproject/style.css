@@ -73,6 +73,9 @@ blockquote {
   margin-bottom: 80px;
 }
 
+#skills {
+  grid-column: 2 / span 5;
+}
 #education {
   grid-column: 2 / span 5;
   background-color: rgba(0, 0, 0, 0.5);
