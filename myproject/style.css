@@ -23,6 +23,10 @@ body {
   padding: 0;
 }
 
+#name {
+  color: rgb(233, 64, 78);
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -82,11 +86,13 @@ blockquote {
 #skills .icon-container {
   align-items: center;
   text-align: center;
+  margin: 0.5rem;
 }
 
 #skills .icons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 #skills .icon {
